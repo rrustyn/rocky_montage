@@ -18,6 +18,7 @@ def scoreGame():
     totalScore = 0
     
     for game in games:
+        print(totalScore)
         totalScore = totalScore + compareThrow(game)
         
     print(totalScore)
@@ -41,12 +42,12 @@ def compareThrow(choices):
     choices = [equivilants[choice] for choice in choices]
     
     if choices[0] == choices [1]:
-        return 3 + throwScore[choices[0]]
-    elif ((choices[0] == "rock" and choices[1] == "scissors") or 
-          (choices[0] == "scissors" and choices[1] == "paper") or
-          (choices[0] == "paper" and choices[1] == "rock")):
-        return 6 + throwScore[choices[0]]
+        return 3 + throwScore[choices[1]]
+    elif ((choices[1] == "rock" and choices[0] == "scissors") or 
+          (choices[1] == "scissors" and choices[0] == "paper") or
+          (choices[1] == "paper" and choices[0] == "rock")):
+        return 6 + throwScore[choices[1]]
     else:
-        return throwScore[choices[0]]
+        return throwScore[choices[1]]
     
 scoreGame()
